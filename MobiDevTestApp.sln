@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiDevTestApp.Api", "MobiDevTestApp.Api\MobiDevTestApp.Api.csproj", "{67271E75-FEAE-4976-9792-2048A8EC7247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiDevTestApp.BusinessLayer", "MobiDevTestApp.Services\MobiDevTestApp.BusinessLayer.csproj", "{6F1F7461-3667-4587-8922-A2719942C809}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiDevTestApp.DataLayer", "MobiDevTestApp.DataLayer\MobiDevTestApp.DataLayer.csproj", "{7F37311A-D195-4528-94BA-420FFC7EDB4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67271E75-FEAE-4976-9792-2048A8EC7247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67271E75-FEAE-4976-9792-2048A8EC7247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67271E75-FEAE-4976-9792-2048A8EC7247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67271E75-FEAE-4976-9792-2048A8EC7247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1F7461-3667-4587-8922-A2719942C809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1F7461-3667-4587-8922-A2719942C809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1F7461-3667-4587-8922-A2719942C809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1F7461-3667-4587-8922-A2719942C809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F37311A-D195-4528-94BA-420FFC7EDB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F37311A-D195-4528-94BA-420FFC7EDB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F37311A-D195-4528-94BA-420FFC7EDB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F37311A-D195-4528-94BA-420FFC7EDB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
