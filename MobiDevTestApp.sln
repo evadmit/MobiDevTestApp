@@ -1,11 +1,14 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiDevTestApp.Api", "MobiDevTestApp.Api\MobiDevTestApp.Api.csproj", "{67271E75-FEAE-4976-9792-2048A8EC7247}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobiDevTestApp.Api", "MobiDevTestApp.Api\MobiDevTestApp.Api.csproj", "{67271E75-FEAE-4976-9792-2048A8EC7247}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiDevTestApp.BusinessLayer", "MobiDevTestApp.Services\MobiDevTestApp.BusinessLayer.csproj", "{6F1F7461-3667-4587-8922-A2719942C809}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobiDevTestApp.BusinessLayer", "MobiDevTestApp.Services\MobiDevTestApp.BusinessLayer.csproj", "{6F1F7461-3667-4587-8922-A2719942C809}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiDevTestApp.DataLayer", "MobiDevTestApp.DataLayer\MobiDevTestApp.DataLayer.csproj", "{7F37311A-D195-4528-94BA-420FFC7EDB4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobiDevTestApp.DataLayer", "MobiDevTestApp.DataLayer\MobiDevTestApp.DataLayer.csproj", "{7F37311A-D195-4528-94BA-420FFC7EDB4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiDevTestApp.ViewModels", "MobiDevTestApp.ViewModels\MobiDevTestApp.ViewModels.csproj", "{C5A018D1-5AE7-4261-BD09-2499DACEB238}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,5 +28,15 @@ Global
 		{7F37311A-D195-4528-94BA-420FFC7EDB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F37311A-D195-4528-94BA-420FFC7EDB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F37311A-D195-4528-94BA-420FFC7EDB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A018D1-5AE7-4261-BD09-2499DACEB238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A018D1-5AE7-4261-BD09-2499DACEB238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A018D1-5AE7-4261-BD09-2499DACEB238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A018D1-5AE7-4261-BD09-2499DACEB238}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7D49DA7-CC91-451A-9FD4-F5C9BBFD557F}
 	EndGlobalSection
 EndGlobal
