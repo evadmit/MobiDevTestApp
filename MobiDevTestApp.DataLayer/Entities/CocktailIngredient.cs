@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobiDevTestApp.DataLayer.Entities
 {
-    public class CocktailIngredient
+    public class CocktailIngredient: BaseEntity
     {
         public long CocktailId { get; set; }
         public Cocktail Cocktail { get; set; }
