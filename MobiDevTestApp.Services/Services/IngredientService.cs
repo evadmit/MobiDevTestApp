@@ -31,11 +31,12 @@ namespace MobiDevTestApp.BusinessLayer.Services
         }
         public async Task EditIngredient(EditIngredientRequestModel editIngredient)
         {
-            var oldIngredient = await _ingredientRepository.Get(editIngredient.Id);
-            if (oldIngredient != null)
+            var ingredientToUpdate = await _ingredientRepository.Get(editIngredient.Id);
+            if (ingredientToUpdate != null)
             {
-                var updatedIngredient = _mapper.Map<Ingredient>(editIngredient);
-                await _ingredientRepository.Edit(updatedIngredient);
+                ingredientToUpdate.MeasurmentId = editIngredient.MeasurmentId;
+                ingredientToUpdate.Title = editIngredient.Title;
+                await _ingredientRepository.Edit(ingredientToUpdate);
             }
         }
         public async Task DeleteIngredient(long selectedIngredientId)

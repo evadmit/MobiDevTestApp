@@ -13,12 +13,10 @@ namespace MobiDevTestApp.Api.Controllers
     public class CocktailController : ControllerBase
     {
         private readonly ICocktailService _cocktailService;
-        private readonly ILogger<CocktailController> _logger;
 
-        public CocktailController(ICocktailService cocktailService, ILogger<CocktailController> logger)
+        public CocktailController(ICocktailService cocktailService)
         {
             _cocktailService = cocktailService;
-            _logger = logger;
         }
 
         [HttpGet]
@@ -36,7 +34,6 @@ namespace MobiDevTestApp.Api.Controllers
         {
            
             await _cocktailService.AddCocktail(addCocktail);
-
             return Ok();
         }
 

@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MobiDevTestApp.DataLayer.Repositories;
 using MobiDevTestApp.DataLayer.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MobiDevTestApp.DataLayer
 {

@@ -17,9 +17,19 @@ namespace MobiDevTestApp.DataLayer.Repositories
         public async Task<List<Cocktail>> GetCocktailsWithIngredients()
         {
             List<Cocktail> cocktails = await _dbContext.Cocktails.Include(ct => ct.CocktailIngredients)
-            .ThenInclude(ci=>ci.Ingredient)
-            .ThenInclude(ms=> ms.Measurment)
+            .ThenInclude(ci => ci.Ingredient)
+            .ThenInclude(ms => ms.Measurment)
             .ToListAsync();
+            return cocktails;
+        }
+
+        public async Task<Cocktail> GetCocktailWithIngredient(long Id)
+        {
+            var cocktails = await _dbContext.Cocktails       
+            .Include(ct => ct.CocktailIngredients)
+            .ThenInclude(ci => ci.Ingredient)
+            .ThenInclude(ms => ms.Measurment)
+            .FirstOrDefaultAsync(ct => ct.Id == Id);
             return cocktails;
         }
     }

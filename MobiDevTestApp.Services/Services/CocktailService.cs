@@ -35,14 +35,21 @@ namespace MobiDevTestApp.BusinessLayer.Services
 
         public async Task EditCocktail(EditCocktailRequestModel editCocktail)
         {
-            var oldCocktail = await _cocktailRepository.Get(editCocktail.Id);
-            if (oldCocktail != null)
+            var cocktailToUpdate = await _cocktailRepository.GetCocktailWithIngredient(editCocktail.Id);
+            if (cocktailToUpdate != null)
             {
-                var updatedCocktail = _mapper.Map<Cocktail>(editCocktail);
-                await _cocktailRepository.Edit(updatedCocktail);
+                cocktailToUpdate.Title = editCocktail.Title;
+                cocktailToUpdate.Price = editCocktail.Price;
 
+                var newIngredients = new List<CocktailIngredient>();
+                foreach (var ingredient in editCocktail.Ingredients)
+                {
+                    newIngredients.Add(new CocktailIngredient() { CocktailId = editCocktail.Id, IngredientId = ingredient.Id });
+                }
+                cocktailToUpdate.CocktailIngredients = newIngredients;
+
+                  await _cocktailRepository.Edit(cocktailToUpdate);
             }
-
         }
 
         public async Task<List<GetAllCocktailsResponseModel>> GetAll()

@@ -9,5 +9,6 @@ namespace MobiDevTestApp.DataLayer.Repositories.Interfaces
     public interface ICocktailRepository: IBaseRepository<Cocktail>
     {
         Task<List<Cocktail>> GetCocktailsWithIngredients();
+        Task<Cocktail> GetCocktailWithIngredient(long Id);
     }
 }

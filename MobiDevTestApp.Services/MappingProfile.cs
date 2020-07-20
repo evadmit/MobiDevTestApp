@@ -2,9 +2,6 @@
 using MobiDevTestApp.DataLayer.Entities;
 using MobiDevTestApp.ViewModels.Requests;
 using MobiDevTestApp.ViewModels.Responses;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MobiDevTestApp.BusinessLayer
 {
@@ -32,6 +29,10 @@ namespace MobiDevTestApp.BusinessLayer
                 .ForMember(ci => ci.Measurment, gai => gai.MapFrom(src => src.Ingredient.Measurment))
                 .ReverseMap();
             CreateMap<CocktailIngredient, AddIngredientRequestModel>()
+                .ForMember(ci => ci.Title, gai => gai.MapFrom(src => src.Ingredient.Title))
+                .ForMember(ci => ci.MeasurmentId, gai => gai.MapFrom(src => src.Ingredient.MeasurmentId))
+                .ReverseMap();
+            CreateMap<CocktailIngredient, EditIngredientRequestModel>()
                 .ForMember(ci => ci.Title, gai => gai.MapFrom(src => src.Ingredient.Title))
                 .ForMember(ci => ci.MeasurmentId, gai => gai.MapFrom(src => src.Ingredient.MeasurmentId))
                 .ReverseMap();
