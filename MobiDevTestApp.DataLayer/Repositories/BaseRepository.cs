@@ -49,5 +49,11 @@ namespace MobiDevTestApp.DataLayer.Repositories
         {
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<int> Count()
+        {
+            int count = await _dbContext.Set<TEntity>().CountAsync();
+            return count;
+        }
     }
 }

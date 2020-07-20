@@ -10,6 +10,8 @@ namespace MobiDevTestApp.DataLayer.Entities
         [Key]
         public long Id { get; set; }
         public string Title { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
         public DateTime CreationDate { get; set; }
         public BaseEntity()
         {

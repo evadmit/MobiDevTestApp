@@ -4,10 +4,9 @@ using System.Text;
 
 namespace MobiDevTestApp.ViewModels.Requests
 {
-    public class AddCocktailRequestModel
+    public class AddIngredientRequestModel
     {
         public string Title { get; set; }
-        public decimal Price { get; set; }
-        public List<AddIngredientRequestModel> Ingredients { get; set; }
+        public long MeasurmentId { get; set; }
     }
 }

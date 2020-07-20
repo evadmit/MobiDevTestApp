@@ -44,7 +44,7 @@ namespace MobiDevTestApp.Api.Controllers
 
         [HttpPost]
         [Route("edit")]
-        public async Task<IActionResult> EditCoktail([FromBody]EditCocktailRequestModel editCocktail)
+        public async Task<IActionResult> EditCocktail([FromBody]EditCocktailRequestModel editCocktail)
         {
             await _cocktailService.EditCocktail(editCocktail);
             return Ok();

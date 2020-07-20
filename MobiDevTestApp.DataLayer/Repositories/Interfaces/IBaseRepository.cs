@@ -13,6 +13,7 @@ namespace MobiDevTestApp.DataLayer.Repositories.Interfaces
         Task Edit(TEntity entity);
         Task Delete(TEntity entity);
         Task<TEntity> Get(long id);
+        Task<int> Count();
 
     }
 }
