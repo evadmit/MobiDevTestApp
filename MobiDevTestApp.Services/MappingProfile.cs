@@ -17,6 +17,15 @@ namespace MobiDevTestApp.BusinessLayer
             CreateMap<Ingredient, AddIngredientRequestModel>()
                 .ForMember(ai => ai.MeasurmentId, i => i.MapFrom(src => src.MeasurmentId))
                 .ReverseMap();
+            CreateMap<Ingredient, IngredientIdRequestModel>()
+                .ForMember(ai => ai.Id, i => i.MapFrom(src => src.Id))
+                .ReverseMap();
+            CreateMap<Ingredient, EditIngredientRequestModel>()
+                .ForMember(ai => ai.Id, i => i.MapFrom(src => src.Id))
+                .ReverseMap();
+            CreateMap<IngredientIdRequestModel, CocktailIngredient>()
+                .ForMember(ai => ai.IngredientId, i => i.MapFrom(src => src.Id))
+                .ReverseMap();
 
             CreateMap<CocktailIngredient, GetAllIngredientsResponseModel>()
                 .ForMember(ci => ci.Title, gai => gai.MapFrom(src => src.Ingredient.Title))
@@ -30,6 +39,9 @@ namespace MobiDevTestApp.BusinessLayer
             CreateMap<Measurment, GetAllMeasurmentsResponseModel>().ReverseMap();
 
             CreateMap<Cocktail, AddCocktailRequestModel>()
+                .ForMember(ad => ad.Ingredients, c => c.MapFrom(src => src.CocktailIngredients))
+                .ReverseMap();
+            CreateMap<Cocktail, EditCocktailRequestModel>()
                 .ForMember(ad => ad.Ingredients, c => c.MapFrom(src => src.CocktailIngredients))
                 .ReverseMap();
             CreateMap<Cocktail, GetAllCocktailsResponseModel>()

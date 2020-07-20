@@ -13,15 +13,13 @@ namespace MobiDevTestApp.DataLayer.Repositories
         private readonly IMeasurmentRepository _measurmentRepository;
         private readonly IIngredientRepository _ingredientRepository;
         private readonly ICocktailRepository _cocktailRepository;
-        private readonly ICocktailIngredientRepository _cocktailIngredientRepository;
 
 
-        public DbSeeder(IMeasurmentRepository measurmentRepository, IIngredientRepository ingredientRepository, ICocktailRepository cocktailRepository, ICocktailIngredientRepository cocktailIngredientRepository)
+        public DbSeeder(IMeasurmentRepository measurmentRepository, IIngredientRepository ingredientRepository, ICocktailRepository cocktailRepository)
         {
             _measurmentRepository = measurmentRepository;
             _ingredientRepository = ingredientRepository;
             _cocktailRepository = cocktailRepository;
-            _cocktailIngredientRepository = cocktailIngredientRepository;
         }
 
         public async Task SeedDb()
@@ -29,17 +27,6 @@ namespace MobiDevTestApp.DataLayer.Repositories
             await CreateMeasurments();
             await CreateIngredients();
             await CreateCocktails();
-            try
-            {
-  await CreateCocktailsWithIngredients();
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-          
-
         }
 
         private async Task CreateMeasurments()
@@ -116,22 +103,8 @@ namespace MobiDevTestApp.DataLayer.Repositories
                     Title = "juiceee",
                     Price = 35
                 });
-
-                await _cocktailIngredientRepository.Add(new CocktailIngredient() { CocktailId = 1, IngredientId = 1 });
-                await _cocktailIngredientRepository.Add(new CocktailIngredient() { CocktailId = 2, IngredientId = 3 });
-                await _cocktailIngredientRepository.Add(new CocktailIngredient() { CocktailId = 3, IngredientId = 2 });
             }
         }
-        private async Task CreateCocktailsWithIngredients()
-        {
-            int cocktailsWithIngredientsCount = await _cocktailIngredientRepository.Count();
-
-            if (cocktailsWithIngredientsCount == 0)
-            {
-                await _cocktailIngredientRepository.Add(new CocktailIngredient() { CocktailId = 1, IngredientId = 1 });
-                await _cocktailIngredientRepository.Add(new CocktailIngredient() { CocktailId = 2, IngredientId = 3 });
-                await _cocktailIngredientRepository.Add(new CocktailIngredient() { CocktailId = 3, IngredientId = 2 });
-            }
-        }
+       
     }
 }

@@ -14,7 +14,6 @@ namespace MobiDevTestApp.DataLayer
             services.AddTransient<IIngredientRepository, IngredientRepository>();
             services.AddTransient<IMeasurmentRepository, MeasurmentRepository>();
             services.AddTransient<ICocktailRepository, CocktailRepository>();
-            services.AddTransient<ICocktailIngredientRepository, CocktailIngredientRepository>();
 
         }
     }

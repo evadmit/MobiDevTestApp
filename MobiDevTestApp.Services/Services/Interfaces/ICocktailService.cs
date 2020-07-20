@@ -11,7 +11,6 @@ namespace MobiDevTestApp.BusinessLayer.Services.Interfaces
     {
         Task<List<GetAllCocktailsResponseModel>> GetAll();
         Task AddCocktail(AddCocktailRequestModel cocktail);
-        Task AddIngredient(AddIngredientRequestModel cocktail);
         Task DeleteCocktail(long selectedCocktail);
         Task EditCocktail(EditCocktailRequestModel editCocktail);
     }

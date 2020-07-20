@@ -36,6 +36,7 @@ namespace MobiDevTestApp.BusinessLayer
             services.AddSingleton(mapper);
 
             services.AddTransient<ICocktailService, CocktailService>();
+            services.AddTransient<IIngredientService, IngredientService>();
             services.AddTransient<IDbSeeder, DbSeeder>();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }

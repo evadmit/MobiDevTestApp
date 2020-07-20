@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MobiDevTestApp.BusinessLayer.Services.Interfaces;
@@ -14,11 +11,13 @@ namespace MobiDevTestApp.Api.Controllers
     public class IngredientController : ControllerBase
     {
         private readonly ICocktailService _cocktailService;
+        private readonly IIngredientService _ingredientService;
         private readonly ILogger<IngredientController> _logger;
 
-        public IngredientController(ICocktailService cocktailService, ILogger<IngredientController> logger)
+        public IngredientController(ICocktailService cocktailService, IIngredientService ingredientService, ILogger<IngredientController> logger)
         {
             _cocktailService = cocktailService;
+            _ingredientService = ingredientService;
             _logger = logger;
         }
 
@@ -27,8 +26,25 @@ namespace MobiDevTestApp.Api.Controllers
         public async Task<IActionResult> Add([FromBody]AddIngredientRequestModel addIngredient)
         {
 
-            await _cocktailService.AddIngredient(addIngredient);
+            await _ingredientService.AddIngredient(addIngredient);
 
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("edit")]
+        public async Task<IActionResult> Edit([FromBody]EditIngredientRequestModel editIngredient)
+        {
+
+            await _ingredientService.EditIngredient(editIngredient);
+
+            return Ok();
+        }
+
+        [HttpDelete("{ingredientId}")]
+        public async Task<IActionResult> Delete([FromRoute]long ingredientId)
+        {
+            await _ingredientService.DeleteIngredient(ingredientId);
             return Ok();
         }
     }

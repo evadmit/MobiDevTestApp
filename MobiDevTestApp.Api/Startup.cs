@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using FluentValidation.AspNetCore;
+using MobiDevTestApp.Api.Filters;
 
 namespace MobiDevTestApp.Api
 {
@@ -43,7 +45,9 @@ namespace MobiDevTestApp.Api
             {
                 options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
-            services.AddMvc();
+            services
+                .AddMvc(options => options.Filters.Add<ValidationFilter>())
+                .AddFluentValidation(mvcConfiguration=> mvcConfiguration.RegisterValidatorsFromAssemblyContaining<Startup>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

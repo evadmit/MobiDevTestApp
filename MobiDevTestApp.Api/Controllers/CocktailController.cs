@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -50,9 +48,8 @@ namespace MobiDevTestApp.Api.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        [Route("delete/{cocktailId}")]
-        public async Task<IActionResult> Delete(long cocktailId)
+        [HttpDelete("{cocktailId}")]
+        public async Task<IActionResult> Delete([FromRoute]long cocktailId)
         {
             await _cocktailService.DeleteCocktail(cocktailId);
             return Ok();

@@ -22,9 +22,13 @@ namespace MobiDevTestApp.DataLayer.Repositories
             await SaveChangesAsync();
         }
 
-        public async Task Delete(TEntity entity)
+        public async Task Delete(long id)
         {
-            _dbContext.Remove(entity);
+            var itemToRemove = _dbContext.Set<TEntity>().SingleOrDefaultAsync(et => et.Id == id);
+            if (itemToRemove != null)
+            {
+                _dbContext.Remove(itemToRemove);
+            }
             await SaveChangesAsync();
         }
 

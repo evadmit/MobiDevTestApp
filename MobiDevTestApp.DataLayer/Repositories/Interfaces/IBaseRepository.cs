@@ -11,7 +11,7 @@ namespace MobiDevTestApp.DataLayer.Repositories.Interfaces
 
         Task Add(TEntity entity);
         Task Edit(TEntity entity);
-        Task Delete(TEntity entity);
+        Task Delete(long id);
         Task<TEntity> Get(long id);
         Task<int> Count();
 

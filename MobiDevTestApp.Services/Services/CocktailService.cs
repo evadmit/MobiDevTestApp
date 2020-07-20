@@ -14,13 +14,11 @@ namespace MobiDevTestApp.BusinessLayer.Services
     public class CocktailService: ICocktailService
     {
         private readonly ICocktailRepository _cocktailRepository;
-        private readonly IIngredientRepository _ingredientRepository;
 
         private IMapper _mapper;
-        public CocktailService(ICocktailRepository cocktailRepository, IIngredientRepository ingredientRepository, IMapper mapper)
+        public CocktailService(ICocktailRepository cocktailRepository, IMapper mapper)
         {
             _cocktailRepository = cocktailRepository;
-            _ingredientRepository = ingredientRepository;
             _mapper = mapper;
         }
 
@@ -30,20 +28,21 @@ namespace MobiDevTestApp.BusinessLayer.Services
             await _cocktailRepository.Add(newCocktail);
         }
 
-        public async Task AddIngredient(AddIngredientRequestModel addIngredient)
+        public async Task DeleteCocktail(long selectedCocktailId)
         {
-            var newIngredient = _mapper.Map<Ingredient>(addIngredient);
-            await _ingredientRepository.Add(newIngredient);
+            await _cocktailRepository.Delete(selectedCocktailId);
         }
 
-        public Task DeleteCocktail(long selectedCocktail)
+        public async Task EditCocktail(EditCocktailRequestModel editCocktail)
         {
-            throw new NotImplementedException();
-        }
+            var oldCocktail = await _cocktailRepository.Get(editCocktail.Id);
+            if (oldCocktail != null)
+            {
+                var updatedCocktail = _mapper.Map<Cocktail>(editCocktail);
+                await _cocktailRepository.Edit(updatedCocktail);
 
-        public Task EditCocktail(EditCocktailRequestModel editCocktail)
-        {
-            throw new NotImplementedException();
+            }
+
         }
 
         public async Task<List<GetAllCocktailsResponseModel>> GetAll()
